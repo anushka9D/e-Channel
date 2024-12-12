@@ -1,0 +1,32 @@
+<!-- Header Section -->
+<header class="header">
+    <div class="logo">
+      <h1>Clinic</h1>
+    </div>
+    <nav class="navbar">
+      <ul class="nav-links">
+        <li><a href="#">HOME</a></li>
+        <li><a href="#">ABOUT</a></li>
+        <li><a href="#">SERVICES</a></li>
+        <li><a href="#">CONTACT</a></li>
+      </ul>
+    </nav>
+
+    <div class="login-signup">
+      <div class="signup">
+        <a href="" style="color: white;text-decoration: none;">Sign Up</a>
+      </div>
+      <div class="login">
+        <a href="login.html" style="color: white;text-decoration: none;">Sign In</a>
+      </div>
+    </div>
+    
+  </header>
+
+  <script>
+    document.querySelector('.menu-icon').addEventListener('click', function() {
+  const navbar = document.querySelector('.navbar');
+  navbar.classList.toggle('active');
+});
+
+  </script>

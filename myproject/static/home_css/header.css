@@ -1,0 +1,144 @@
+/* General Header Styling */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #ffffff;
+    color: #000000;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+  }
+  
+  .logo {
+    color: rgb(23, 104, 255);
+  }
+  
+  /* Navbar Styling */
+  .navbar {
+    display: flex;
+  }
+  
+  .nav-links {
+    list-style-type: none;
+    display: flex;
+    margin: 0;
+  }
+  
+  .nav-links li {
+    margin: 0 15px;
+  }
+  
+  .nav-links a {
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    font-size: 18px;
+  }
+  
+  .nav-links a:hover {
+    color: #1717fc; /* Highlight color on hover */
+  }
+  
+  /* Login/Signup Buttons */
+  .signup {
+    background-color: rgb(23, 104, 255);
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-size: 18px;
+  }
+  
+  .signup:hover {
+    background-color: rgb(0, 64, 183);
+  }
+  
+  .login {
+    background-color: rgb(23, 104, 255);
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-size: 18px;
+  }
+  
+  .login:hover {
+    background-color: rgb(0, 64, 183);
+  }
+  
+  .login-signup {
+    display: flex;
+    gap: 10px;
+    margin-right: 10px;
+  }
+  
+  /* Responsive Design */
+  @media screen and (max-width: 768px) {
+    /* Stack the elements vertically */
+    .header {
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 10px;
+    }
+  
+    /* Hide the navbar on small screens by default */
+    .navbar {
+      display: none;
+      width: 100%;
+      text-align: center;
+    }
+  
+    /* Stack the links vertically in mobile view */
+    .nav-links {
+      flex-direction: column;
+      width: 100%;
+    }
+  
+    .nav-links li {
+      margin: 10px 0;
+    }
+  
+    /* Show the menu icon for mobile view */
+    .menu-icon {
+      display: block;
+      font-size: 30px;
+      cursor: pointer;
+    }
+  
+    /* Show navbar when active */
+    .navbar.active {
+      display: block;
+    }
+  
+    /* Adjust Login and Signup buttons for mobile */
+    .login-signup {
+      width: 100%;
+      justify-content: space-between;
+      margin-top: 10px;
+    }
+  
+    .login, .signup {
+      width: 48%;  /* Reduce button width for better mobile fit */
+      text-align: center;
+      padding: 12px 20px;
+    }
+  }
+  
+  /* Optional Media Query for Extra Large Screens */
+  @media screen and (min-width: 1200px) {
+    .header {
+      padding: 20px 50px;
+    }
+  
+    .logo h1 {
+      font-size: 2.5rem;
+    }
+  
+    .nav-links a {
+      font-size: 20px;
+    }
+  
+    .login-signup {
+      margin-right: 30px;
+    }
+  }  
