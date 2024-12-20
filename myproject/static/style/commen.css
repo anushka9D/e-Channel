@@ -1,6 +1,12 @@
 :root {
   --blue_color_btn: #007bff;
   --blue_color_btn_hover: #006fe5;
+  --primary-color: #0066cc;
+  --secondary-color: #004d99;
+  --accent-color: #e6f0ff;
+  --text-color: #333;
+  --light-gray: #f5f5f5;
+  --white: #ffffff;
 }
 
 
