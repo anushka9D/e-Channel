@@ -11,25 +11,127 @@
     <!-- Template Stylesheet -->
     <link rel="stylesheet" type="text/css" href="{% static 'style/commen.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'style/index.css' %}">
-        
+    <link rel="stylesheet" type="text/css" href="{% static 'style/home.css' %}">
 </head>
+
 <body>
+    {% include 'header.html' %}
 
-  {% include 'header.html' %}
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Your Health Is Our Priority</h1>
+            <p>Experience world-class healthcare with our team of expert doctors</p>
+            <a href="{% url 'appointment' %}" class="btn-primary">Book Appointment</a>
+        </div>
+    </section>
 
-  <div style="height: 150px;"></div>
+    <div style="height: 150px;"></div>
 
-  <div class="login-signup">
-    <div class="signup">
-      <a href="user_profile" style="color: white;text-decoration: none;">My Profile</a>
+    <!-- Search Section -->
+    <section class="search-section">
+        <div class="search-container">
+            <h2>Find a Doctor</h2>
+            <div class="search-box">
+                <form method="GET" action="{% url 'search_doctor' %}">
+                    <input type="text" name="query" placeholder="Search by name or specialty">
+                    <button type="submit" class="btn-primary">Search</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <h2>Our Services</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <img src="{% static 'images/services/cardiology.jpg' %}" alt="Cardiology">
+                <h3>Cardiology</h3>
+                <p>Expert heart care and treatment</p>
+            </div>
+            <div class="service-card">
+                <img src="{% static 'images/services/neurology.jpg' %}" alt="Neurology">
+                <h3>Neurology</h3>
+                <p>Advanced brain and nerve care</p>
+            </div>
+            <div class="service-card">
+                <img src="{% static 'images/services/pediatrics.jpg' %}" alt="Pediatrics">
+                <h3>Pediatrics</h3>
+                <p>Specialized care for children</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Doctors Section -->
+    <section class="doctors">
+        <h2>Our Expert Doctors</h2>
+        <div class="doctors-grid">
+            <div class="doctor-card">
+                <img src="{% static 'images/doctors/doctor1.jpg' %}" alt="Dr. Sarah Johnson">
+                <h3>Dr. Sarah Johnson</h3>
+                <p>Cardiologist</p>
+            </div>
+            <div class="doctor-card">
+                <img src="{% static 'images/doctors/doctor2.jpg' %}" alt="Dr. Michael Chen">
+                <h3>Dr. Michael Chen</h3>
+                <p>Neurologist</p>
+            </div>
+            <div class="doctor-card">
+                <img src="{% static 'images/doctors/doctor3.jpg' %}" alt="Dr. Emily Brown">
+                <h3>Dr. Emily Brown</h3>
+                <p>Pediatrician</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <h2>Patient Testimonials</h2>
+        <div class="testimonials-container">
+            <div class="testimonial">
+                <p>"Exceptional care and attention. The staff is incredibly professional."</p>
+                <cite>- John Smith</cite>
+            </div>
+            <div class="testimonial">
+                <p>"Best medical facility I've ever visited. Highly recommended!"</p>
+                <cite>- Maria Garcia</cite>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <h2>Contact Us</h2>
+        <div class="contact-container">
+            <div class="contact-info">
+                <h3>Get in Touch</h3>
+                <p>📍 123 Medical Center Drive</p>
+                <p>📞 (555) 123-4567</p>
+                <p>✉️ info@clinic-system.com</p>
+            </div>
+            <form class="contact-form" method="POST" action="{% url 'send_message' %}">
+                {% csrf_token %}
+                <input type="text" name="name" placeholder="Name" required>
+                <input type="email" name="email" placeholder="Email" required>
+                <textarea name="message" placeholder="Message" required></textarea>
+                <button type="submit" class="btn-primary">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <div class="login-signup">
+        <div class="signup">
+            <a href="{% url 'user_profile' %}" style="color: white; text-decoration: none;">My Profile</a>
+        </div>
+        <div class="login">
+            <a href="{% url 'logout' %}" style="color: white; text-decoration: none;">Log Out</a>
+        </div>
     </div>
-    <div class="login">
-      <a href="{% url 'index' %}" style="color: white;text-decoration: none;">Log Out</a>
-    </div>
-  </div>
-  
 
-    {% include 'footer.html' %} 
-  <script src="{% static 'scripts/home.js'%}"></script>
+    {% include 'footer.html' %}
+
+    <script src="{% static 'scripts/home.js' %}"></script>
 </body>
+
 </html>
