@@ -1,27 +1,30 @@
 <!-- Header Section -->
-<header class="header">
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'style/header.css' %}">
+<div style="padding-bottom: 200px;">
+  <header class="header">
     <div class="logo">
       <h1>Clinic</h1>
     </div>
     <nav class="navbar">
       <ul class="nav-links">
-        <li><a href="#">HOME</a></li>
-        <li><a href="#">ABOUT</a></li>
-        <li><a href="#">SERVICES</a></li>
-        <li><a href="#">CONTACT</a></li>
+        <li><a href="{% url 'index' %}">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Services</a></li>
+        <li><a href="#">Contact</a></li>
       </ul>
     </nav>
 
     <div class="login-signup">
       <div class="signup">
-        <a href="" style="color: white;text-decoration: none;">Sign Up</a>
+        <a href="{% url 'sign_up' %}" style="color: white;text-decoration: none;">Sign Up</a>
       </div>
       <div class="login">
-        <a href="login.html" style="color: white;text-decoration: none;">Sign In</a>
+        <a href="{% url 'login' %}" style="color: white;text-decoration: none;">Sign In</a>
       </div>
     </div>
-    
   </header>
+</div>
 
   <script>
     document.querySelector('.menu-icon').addEventListener('click', function() {

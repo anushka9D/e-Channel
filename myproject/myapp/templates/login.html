@@ -2,94 +2,53 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    {% load static %}
+    <link rel="icon" href="{% static 'image/web icon/logo.png' %}">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hospital System Login</title>
-    <style>
-        .login-container {
-            background-color: #fff;
-            border-radius: 8px;
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-            padding: 20px;
-            width: 300px;
-            text-align: center;
-        }
 
-        h1 {
-            margin-bottom: 20px;
-            color: #2c3e50;
-        }
+    <!-- Stylesheet -->
+    <link rel="stylesheet" type="text/css" href="{% static 'style/login.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'style/commen.css' %}">
 
-        .input-group {
-            margin-bottom: 15px;
-            text-align: left;
-        }
+    <!-- SweetAlert CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-        label {
-            display: block;
-            margin-bottom: 5px;
-            color: #34495e;
-        }
-
-        input[type="text"],
-        input[type="password"] {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            transition: border-color 0.3s;
-        }
-
-        input[type="text"]:focus,
-        input[type="password"]:focus {
-            border-color: #2980b9;
-            outline: none;
-        }
-
-        button {
-            width: 100%;
-            padding: 10px;
-            background-color: #2980b9;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 16px;
-            transition: background-color 0.3s;
-        }
-
-        button:hover {
-            background-color: #3498db;
-        }
-
-        .footer-text {
-            margin-top: 15px;
-        }
-
-        .footer-text a {
-            color: #2980b9;
-            text-decoration: none;
-        }
-
-        .footer-text a:hover {
-            text-decoration: underline;
-        }
-    </style>
 </head>
 <body>
-    <div class="login-container">
-        <h1>Hospital System Login</h1>
-        <form action="#" method="POST">
-            <div class="input-group">
-                <label for="username">Username</label>
-                <input type="text" id="username" name="username" required>
-            </div>
-            <div class="input-group">
-                <label for="password">Password</label>
-                <input type="password" id="password" name="password" required>
-            </div>
-            <button type="submit">Login</button>
-            <p class="footer-text">Forgot your password? <a href="#">Reset it</a></p>
-        </form>
+    {% include 'header.html' %}
+    <div class="login-page">
+        <div class="login-container">
+            <h1 class="login-title">Welcome back</h1>
+            <form action="{% url 'login' %}" method="POST">
+                {% csrf_token %}
+                <div class="input-group">
+                    <input type="text" placeholder="Email address" id="username" name="email" required>
+                </div>
+                <div class="input-group">
+                    <input type="password" placeholder="Password" id="password" name="password" required>
+                </div>
+                <p class="forgot-password"><a href="#">Forgot password</a></p>
+                <button type="submit">Login</button>
+                
+                <p class="signup-link">Don't have an account? <a href="{% url 'sign_up' %}">Sign Up</a></p>
+            </form>
+        </div>
     </div>
+    {% include 'footer.html' %}
+
+    <!-- Trigger SweetAlert only for the success message -->
+    {% if messages %}
+        {% for message in messages %}
+            <script>
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: '{{ message }}',
+                    showConfirmButton: true
+                });
+            </script>
+        {% endfor %}
+    {% endif %}
 </body>
 </html>

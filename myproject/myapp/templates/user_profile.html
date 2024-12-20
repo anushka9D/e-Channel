@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% load static %}
+    <link rel="icon" href="{% static 'image/web icon/logo.png' %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up Page</title>
+    
+    <link rel="stylesheet" type="text/css" href="{% static 'style/commen.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'style/sign_up.css' %}">
+
+    <!-- SweetAlert CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
+
+    {% include 'header.html' %}
+
+    <div class="signup-container-main">
+        <div class="sign_up-container">
+            <h2 class="signup-title">Create Account</h2>
+            <form action="{% url 'sign_up' %}" method="POST" id="signup-form">
+                {% csrf_token %}
+                
+                <div class="form-group">
+                    <label for="full-name">Full Name</label>
+                    <input type="text" id="full-name" name="full-name" placeholder="Enter your full name" required>
+                    <div class="error" id="name-error">{{ full_name_error }}</div>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                    <div class="error" id="email-error">{{ email_error }}</div>
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
+                    <div class="error" id="phone-error">{{ phone_error }}</div>
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" placeholder="Enter your password" required>
+                    <div class="error" id="password-error">{{ password_error }}</div>
+                </div>
+
+                <div class="form-group">
+                    <input type="submit" value="Update Profile">
+                </div>
+            </form>
+        </div>
+    </div>
+
+    {% include 'footer.html' %}
+
+    <script src="{% static 'scripts/sign_up.js' %}"></script>
+
+    <!-- Trigger SweetAlert only for the success message -->
+    {% if messages %}
+        {% for message in messages %}
+            {% if message %}  <!-- Success message level -->
+                <script>
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Registration successful!',
+                        text: 'You can now log in.',
+                        showConfirmButton: true
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            // Redirect to the login page after the alert is closed
+                            window.location.href = '{% url "login" %}';
+                        }
+                    });
+                </script>
+            {% elif message %}  <!-- Error message level -->
+                <script>
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: '{{ message }}',
+                        showConfirmButton: true
+                    });
+                </script>
+            {% endif %}
+        {% endfor %}
+    {% endif %}
+
+</body>
+</html>

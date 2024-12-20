@@ -38,7 +38,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'myapp',  # Add your app here
-    'django_browser_reload',
 ]
 
 MIDDLEWARE = [

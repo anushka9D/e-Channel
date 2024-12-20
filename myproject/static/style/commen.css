@@ -1,0 +1,19 @@
+
+:root {
+  --blue_color_btn: #007bff;
+  --blue_color_btn_hover: #006fe5;
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+  }
+
+
+    
