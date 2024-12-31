@@ -5,6 +5,7 @@ from django.core.exceptions import ValidationError
 import re
 from myapp.models import User
 from myapp.models import Login
+from myapp.models import Admin
 
 def index(request):
     return render(request, 'index.html')
@@ -80,7 +81,7 @@ def sign_up(request):
             return render(request, 'sign_up.html', context)
 
         # If no errors, create the user and save
-        user = User(full_name=full_name, phone=phone, email=email, password=password, user_role='user')
+        user = User(full_name=full_name, phone=phone, email=email, password=password)
         login = Login(email=email, password=password, user_role='user')
         user.save()
         login.save()
@@ -98,3 +99,9 @@ def home(request):
 
 def admin_dashboard(request):
     return render(request, 'admin_dashboard.html')
+
+def doctor_dashboard(request):
+    return render(request, 'doctor_dashboard.html')
+
+def support_staff_dashboard(request):
+    return render(request, 'support_staff_dashboard.html')

@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% load static %}
+    <link rel="icon" href="{% static 'image/web icon/logo.png' %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spike Admin Dashboard</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{% static 'style/admin_dashboard.css' %}">
+</head>
+<body>
+    <div class="sidebar">
+        <div class="d-flex align-items-center mb-4">
+            <i class="fas fa-rocket text-primary fs-4 me-2"></i>
+            <h4 class="mb-0">Spike Admin</h4>
+        </div>
+        
+        <div class="mb-4">
+            <small class="text-muted">HOME</small>
+            <a href="#" class="nav-link active">
+                <i class="fas fa-th-large me-2"></i>
+                Dashboard
+            </a>
+        </div>
+        
+        <div class="mb-4">
+            <small class="text-muted">UI</small>
+            <a href="#" class="nav-link">
+                <i class="fas fa-bell me-2"></i>
+                Alert
+            </a>
+            <a href="#" class="nav-link">
+                <i class="fas fa-square me-2"></i>
+                Button
+            </a>
+            <a href="#" class="nav-link">
+                <i class="fas fa-credit-card me-2"></i>
+                Cards
+            </a>
+            <a href="#" class="nav-link">
+                <i class="fas fa-table me-2"></i>
+                Tables
+            </a>
+        </div>
+        
+        <div class="mb-4">
+            <small class="text-muted">AUTH</small>
+            <a href="#" class="nav-link">
+                <i class="fas fa-sign-in-alt me-2"></i>
+                Login
+            </a>
+            <a href="#" class="nav-link">
+                <i class="fas fa-user-plus me-2"></i>
+                Register
+            </a>
+        </div>
+    </div>
+
+    <div class="main-content">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <div class="d-flex align-items-center">
+                <i class="fas fa-bell text-muted me-3 fs-5"></i>
+            </div>
+            <div class="d-flex align-items-center">
+                <button class="btn btn-primary me-3">Upgrade To Pro</button>
+                <img src="/api/placeholder/40/40" class="rounded-circle" alt="Profile">
+            </div>
+        </div>
+
+        <div class="row g-4">
+            <div class="col-12 col-lg-8">
+                <div class="card p-4">
+                    <div class="d-flex justify-content-between align-items-center mb-4">
+                        <h5 class="mb-0">Profit & Expenses</h5>
+                        <i class="fas fa-ellipsis-v text-muted"></i>
+                    </div>
+                    <canvas id="profitChart" height="300"></canvas>
+                </div>
+            </div>
+            
+            <div class="col-12 col-lg-4">
+                <div class="card p-4">
+                    <h5 class="mb-4">Traffic Distribution</h5>
+                    <h3 class="mb-2">$36,358</h3>
+                    <div class="d-flex align-items-center mb-4">
+                        <i class="fas fa-arrow-up text-success me-2"></i>
+                        <span class="text-success">+9%</span>
+                        <span class="text-muted ms-2">last year</span>
+                    </div>
+                    <canvas id="trafficChart" height="200"></canvas>
+                </div>
+            </div>
+            
+            <div class="col-12 col-lg-4">
+                <div class="card p-4">
+                    <h5 class="mb-4">Product Sales</h5>
+                    <h3 class="mb-2">$6,820</h3>
+                    <div class="d-flex align-items-center mb-4">
+                        <i class="fas fa-arrow-up text-success me-2"></i>
+                        <span class="text-success">+9%</span>
+                        <span class="text-muted ms-2">last year</span>
+                    </div>
+                    <canvas id="salesChart" class="small-chart"></canvas>
+                </div>
+            </div>
+
+            <div class="col-12 col-lg-6">
+                <div class="card p-4">
+                    <h5 class="mb-4">Upcoming Schedules</h5>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div class="text-muted mb-1">09:30 am</div>
+                            <div>Payment received from <span class="text-primary">John Doe</span> of $385.90</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div class="text-muted mb-1">10:00 am</div>
+                            <div>New sale recorded <span class="text-primary">#ML-3467</span></div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div class="text-muted mb-1">12:00 am</div>
+                            <div>Payment was made of $64.95 to <span class="text-primary">Michael</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-12 col-lg-6">
+                <div class="card p-4">
+                    <div class="d-flex justify-content-between align-items-center mb-4">
+                        <h5 class="mb-0">Top Paying Clients</h5>
+                        <i class="fas fa-ellipsis-v text-muted"></i>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Id</th>
+                                    <th>Assigned</th>
+                                    <th>Name</th>
+                                    <th>Priority</th>
+                                    <th>Budget</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>1</td>
+                                    <td>
+                                        <div>Sunil Joshi</div>
+                                        <small class="text-muted">Web Designer</small>
+                                    </td>
+                                    <td>Elite Admin</td>
+                                    <td><span class="priority-badge priority-low">Low</span></td>
+                                    <td>$3.9k</td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td>
+                                        <div>Andrew McDownland</div>
+                                        <small class="text-muted">Project Manager</small>
+                                    </td>
+                                    <td>Real Homes WP Theme</td>
+                                    <td><span class="priority-badge priority-medium">Medium</span></td>
+                                    <td>$24.5k</td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td>
+                                        <div>Christopher Jamil</div>
+                                        <small class="text-muted">Project Manager</small>
+                                    </td>
+                                    <td>MedicalPro WP Theme</td>
+                                    <td><span class="priority-badge priority-high">High</span></td>
+                                    <td>$12.8k</td>
+                                </tr>
+                                <tr>
+                                    <td>4</td>
+                                    <td>
+                                        <div>Nirav Joshi</div>
+                                        <small class="text-muted">Frontend Engineer</small>
+                                    </td>
+                                    <td>Hosting Press HTML</td>
+                                    <td><span class="priority-badge priority-critical">Critical</span></td>
+                                    <td>$2.4k</td>
+                                </tr>
+                                <tr>
+                                    <td>5</td>
+                                    <td>
+                                        <div>Tim Geroge</div>
+                                        <small class="text-muted">Web Designer</small>
+                                    </td>
+                                    <td>Hosting Press HTML</td>
+                                    <td><span class="priority-badge priority-critical-purple">Critical</span></td>
+                                    <td>$5.4k</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
+    <script>
+        // Profit & Expenses Chart
+        const profitCtx = document.getElementById('profitChart').getContext('2d');
+        new Chart(profitCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+                datasets: [
+                    {
+                        label: 'Organic',
+                        data: [9, 5, 3, 7, 5, 10, 3],
+                        backgroundColor: '#0d6efd',
+                        borderRadius: 5
+                    },
+                    {
+                        label: 'Referral',
+                        data: [6, 3, 9, 5, 4, 6, 4],
+                        backgroundColor: '#ff8f8f',
+                        borderRadius: 5
+                    }
+                ]
+            },
+            options: {
+                plugins: {
+                    legend: {
+                        display: false
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        grid: {
+                            display: true,
+                            color: '#f0f0f0'
+                        }
+                    },
+                    x: {
+                        grid: {
+                            display: false
+                        }
+                    }
+                }
+            }
+        });
+
+        // Traffic Distribution Chart
+        const trafficCtx = document.getElementById('trafficChart').getContext('2d');
+        new Chart(trafficCtx, {
+            type: 'doughnut',
+            data: {
+                labels: ['Organic', 'Referral'],
+                datasets: [{
+                    data: [65, 35],
+                    backgroundColor: ['#0d6efd', '#ff8f8f'],
+                    borderWidth: 0
+                }]
+            },
+            options: {
+                plugins: {
+                    legend: {
+                        position: 'bottom'
+                    }
+                },
+                cutout: '70%'
+            }
+        });
+
+        // Product Sales Chart
+        const salesCtx = document.getElementById('salesChart').getContext('2d');
+        new Chart(salesCtx, {
+            type: 'line',
+            data: {
+                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+                datasets: [{
+                    data: [65, 59, 80, 81, 56, 55],
+                    fill: false,
+                    borderColor: '#0d6efd',
+                    tension: 0.4,
+                    borderWidth: 2,
+                    pointRadius: 0
+                }]
+            },
+            options: {
+                plugins: {
+                    legend: {
+                        display: false
+                    }
+                },
+                scales: {
+                    x: {
+                        display: false
+                    },
+                    y: {
+                        display: false
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>

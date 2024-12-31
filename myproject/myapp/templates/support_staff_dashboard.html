@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- Previous head content remains the same -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medflex Dashboard</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        /* Previous styles remain the same */
+        .sidebar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100vh;
+            width: 250px;
+            background: white;
+            padding: 1rem;
+            z-index: 1000;
+            transition: all 0.3s ease;
+            overflow-y: auto;
+        }
+
+        /* Add new styles for dropdown */
+        .nav-dropdown {
+            margin-left: 2rem;
+            display: none;
+        }
+
+        .nav-dropdown.show {
+            display: block;
+        }
+
+        .nav-dropdown .nav-link {
+            padding: 0.5rem 1rem;
+            font-size: 0.9rem;
+        }
+
+        .nav-item {
+            position: relative;
+        }
+
+        .dropdown-toggle::after {
+            display: none;
+        }
+
+        .dropdown-icon {
+            transition: transform 0.3s ease;
+        }
+
+        .dropdown-icon.rotate {
+            transform: rotate(180deg);
+        }
+
+        /* Rest of the previous styles */
+        /* ... */
+    </style>
+</head>
+<body class="bg-light">
+    <!-- Sidebar -->
+    <div class="sidebar shadow-sm">
+        <div class="sidebar-profile">
+            <img src="/api/placeholder/48/48" alt="Nick Gonzalez" class="profile-img">
+            <div>
+                <h6 class="mb-0">Nick Gonzalez</h6>
+                <small class="text-muted">Dept Admin</small>
+            </div>
+        </div>
+
+        <nav class="nav flex-column">
+            <a href="#" class="nav-link active">
+                <i class="fas fa-hospital"></i>
+                Hospital Dashboard
+            </a>
+            <a href="#" class="nav-link">
+                <i class="fas fa-laptop-medical"></i>
+                Medical Dashboard
+            </a>
+            <a href="#" class="nav-link">
+                <i class="fas fa-tooth"></i>
+                Dentist Dashboard
+            </a>
+            
+            <!-- Doctors Dropdown -->
+            <div class="nav-item">
+                <a href="#" class="nav-link d-flex justify-content-between dropdown-toggle" data-bs-toggle="dropdown">
+                    <div>
+                        <i class="fas fa-user-md"></i>
+                        Doctors
+                    </div>
+                    <i class="fas fa-chevron-down dropdown-icon"></i>
+                </a>
+                <div class="nav-dropdown">
+                    <a href="#" class="nav-link">Doctors Dashboard</a>
+                    <a href="#" class="nav-link">Doctors List</a>
+                    <a href="#" class="nav-link">Doctors Cards</a>
+                    <a href="#" class="nav-link">Doctors Profile</a>
+                    <a href="#" class="nav-link">Add Doctor</a>
+                    <a href="#" class="nav-link">Edit Doctor</a>
+                </div>
+            </div>
+
+
+            
+    </div>
+
+    <!-- Rest of the previous content -->
+    <!-- ... -->
+
+    <!-- Add this before closing body tag -->
+    <script>
+        // Toggle sidebar on mobile
+        document.getElementById('sidebarToggle')?.addEventListener('click', function() {
+            document.querySelector('.sidebar').classList.toggle('show');
+            document.querySelector('.sidebar-backdrop').classList.toggle('show');
+        });
+
+        // Close sidebar when clicking backdrop
+        document.querySelector('.sidebar-backdrop')?.addEventListener('click', function() {
+            document.querySelector('.sidebar').classList.remove('show');
+            document.querySelector('.sidebar-backdrop').classList.remove('show');
+        });
+
+        // Handle dropdowns
+        document.querySelectorAll('.dropdown-toggle').forEach(function(element) {
+            element.addEventListener('click', function(e) {
+                e.preventDefault();
+                const dropdown = this.nextElementSibling;
+                const icon = this.querySelector('.dropdown-icon');
+                
+                // Close other dropdowns
+                document.querySelectorAll('.nav-dropdown.show').forEach(function(el) {
+                    if (el !== dropdown) {
+                        el.classList.remove('show');
+                        el.previousElementSibling.querySelector('.dropdown-icon').classList.remove('rotate');
+                    }
+                });
+
+                // Toggle current dropdown
+                dropdown.classList.toggle('show');
+                icon.classList.toggle('rotate');
+            });
+        });
+    </script>
+</body>
+</html>

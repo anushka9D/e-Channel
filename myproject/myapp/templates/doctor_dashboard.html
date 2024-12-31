@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="icon" href="{% static 'image/web icon/logo.png' %}">
+    <title>Medflex Dashboard</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{% static 'style/doctor_dashboard.css' %}">
+</head>
+<body class="bg-light">
+    <!-- Sidebar -->
+    <div class="sidebar shadow-sm">
+        <div class="sidebar-profile">
+            <img src="/api/placeholder/48/48" alt="Nick Gonzalez" class="profile-img">
+            <div>
+                <h6 class="mb-0">Nick Gonzalez</h6>
+                <small class="text-muted">Dept Admin</small>
+            </div>
+        </div>
+
+        <nav class="nav flex-column">
+            <a href="#" class="nav-link active">
+                <i class="fas fa-hospital"></i>
+                Hospital Dashboard
+            </a>
+            <a href="#" class="nav-link">
+                <i class="fas fa-laptop-medical"></i>
+                Medical Dashboard
+            </a>
+            <a href="#" class="nav-link">
+                <i class="fas fa-tooth"></i>
+                Dentist Dashboard
+            </a>
+            <!-- Doctors Dropdown -->
+            <div class="nav-item">
+                <a href="#" class="nav-link d-flex justify-content-between dropdown-toggle" data-bs-toggle="dropdown">
+                    <div>
+                        <i class="fas fa-user-md"></i>
+                        Doctors
+                    </div>
+                    <i class="fas fa-chevron-down dropdown-icon"></i>
+                </a>
+                <div class="nav-dropdown">
+                    <a href="#" class="nav-link">Doctors Dashboard</a>
+                    <a href="#" class="nav-link">Doctors List</a>
+                    <a href="#" class="nav-link">Doctors Cards</a>
+                    <a href="#" class="nav-link">Doctors Profile</a>
+                    <a href="#" class="nav-link">Add Doctor</a>
+                    <a href="#" class="nav-link">Edit Doctor</a>
+                </div>
+            </div>
+            <a href="#" class="nav-link d-flex justify-content-between">
+                <div>
+                    <i class="fas fa-users"></i>
+                    Patients
+                </div>
+                <i class="fas fa-chevron-right"></i>
+            </a>
+            <a href="#" class="nav-link d-flex justify-content-between">
+                <div>
+                    <i class="fas fa-user-tie"></i>
+                    Staff
+                </div>
+                <i class="fas fa-chevron-right"></i>
+            </a>
+            <a href="#" class="nav-link d-flex justify-content-between">
+                <div>
+                    <i class="fas fa-calendar-check"></i>
+                    Appointments
+                </div>
+                <i class="fas fa-chevron-right"></i>
+            </a>
+            <a href="#" class="nav-link d-flex justify-content-between">
+                <div>
+                    <i class="fas fa-building"></i>
+                    Departments
+                </div>
+                <i class="fas fa-chevron-right"></i>
+            </a>
+            <a href="#" class="nav-link d-flex justify-content-between">
+                <div>
+                    <i class="fas fa-file-invoice-dollar"></i>
+                    Accounts
+                </div>
+                <i class="fas fa-chevron-right"></i>
+            </a>
+        </nav>
+
+        <a href="tel:098765432" class="emergency-contact">
+            <i class="fas fa-phone-alt me-2"></i>
+            Emergency Contact
+            <div class="small">098765432</div>
+        </a>
+    </div>
+
+    <!-- Sidebar Backdrop -->
+    <div class="sidebar-backdrop"></div>
+
+    <!-- Main Content Wrapper -->
+    <div class="main-wrapper">
+        <!-- Header -->
+        <header class="bg-white shadow-sm">
+            <div class="container-fluid py-3">
+                <div class="row align-items-center">
+                    <div class="col-auto d-lg-none">
+                        <button class="btn btn-link text-dark px-0 me-3" id="sidebarToggle">
+                            <i class="fas fa-bars"></i>
+                        </button>
+                    </div>
+                    <div class="col-auto">
+                        <div class="d-flex align-items-center gap-3">
+                            <h1 class="h2 text-primary mb-0">Clinic</h1>
+                        </div>
+                    </div>
+                    <div class="col text-end">
+                        <div class="d-flex align-items-center justify-content-end gap-3">
+                            <div class="search-container">
+                                <i class="fas fa-search"></i>
+                                <input type="text" class="form-control search-input" placeholder="Search">
+                            </div>
+                            <i class="fas fa-bell text-muted"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="container-fluid py-4">
+            <!-- Welcome Card -->
+            <div class="welcome-card" >
+                <h2 class="h5 mb-1">Good Morning,</h2>    
+                <h3 class="h2 mb-4">Dr. Patrick Kim</h3>
+                <div class="row g-3" style="max-width: 50%;">
+                    <div class="col-md-4">
+                        <div class="stat-card">
+                            <h4 class="h2 mb-1">9</h4>
+                            <p class="mb-0">Patients</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="stat-card">
+                            <h4 class="h2 mb-1">3</h4>
+                            <p class="mb-0">Surgeries</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="stat-card">
+                            <h4 class="h2 mb-1">2</h4>
+                            <p class="mb-0">Discharges</p>
+                        </div>
+                    </div>
+                </div> 
+            </div>
+
+            <!-- Metrics Grid -->
+            <div class="row g-4 mb-4">
+                <div class="col-md-6 col-lg-3">
+                    <div class="metric-card">
+                        <div class="d-flex justify-content-between mb-3">
+                            <i class="fas fa-eye text-success"></i>
+                            <span class="text-success">+40%</span>
+                        </div>
+                        <h4 class="h3 mb-1">890</h4>
+                        <p class="text-muted mb-2">New Patients</p>
+                        <a href="#" class="text-primary text-decoration-none">View All <i class="fas fa-chevron-right small"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="metric-card">
+                        <div class="d-flex justify-content-between mb-3">
+                            <i class="fas fa-heartbeat text-primary"></i>
+                            <span class="text-success">+30%</span>
+                        </div>
+                        <h4 class="h3 mb-1">360</h4>
+                        <p class="text-muted mb-2">OPD Patients</p>
+                        <a href="#" class="text-primary text-decoration-none">View All <i class="fas fa-chevron-right small"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="metric-card">
+                        <div class="d-flex justify-content-between mb-3">
+                            <i class="fas fa-flask text-danger"></i>
+                            <span class="text-success">+60%</span>
+                        </div>
+                        <h4 class="h3 mb-1">980</h4>
+                        <p class="text-muted mb-2">Lab tests</p>
+                        <a href="#" class="text-primary text-decoration-none">View All <i class="fas fa-chevron-right small"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="metric-card">
+                        <div class="d-flex justify-content-between mb-3">
+                            <i class="fas fa-dollar-sign text-warning"></i>
+                            <span class="text-success">+20%</span>
+                        </div>
+                        <h4 class="h3 mb-1">$98000</h4>
+                        <p class="text-muted mb-2">Total Earnings</p>
+                        <a href="#" class="text-primary text-decoration-none">View All <i class="fas fa-chevron-right small"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Operations Grid -->
+            <div class="row g-4">
+                <div class="col-6 col-md-4 col-lg-2">
+                    <div class="operation-card">
+                        <div class="icon-circle">
+                            <i class="fas fa-calendar text-primary"></i>
+                        </div>
+                        <h4 class="h3 mb-1">639</h4>
+                        <p class="text-muted mb-0">Appointments</p>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-2">
+                    <div class="operation-card">
+                        <div class="icon-circle">
+                            <i class="fas fa-user-md text-primary"></i>
+                        </div>
+                        <h4 class="h3 mb-1">83</h4>
+                        <p class="text-muted mb-0">Doctors</p>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-2">
+                    <div class="operation-card">
+                        <div class="icon-circle">
+                            <i class="fas fa-users text-primary"></i>
+                        </div>
+                        <h4 class="h3 mb-1">296</h4>
+                        <p class="text-muted mb-0">Staff</p>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-2">
+                    <div class="operation-card">
+                        <div class="icon-circle">
+                            <i class="fas fa-procedures text-primary"></i>
+                        </div>
+                        <h4 class="h3 mb-1">49</h4>
+                        <p class="text-muted mb-0">Operations</p>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-2">
+                    <div class="operation-card">
+                        <div class="icon-circle">
+                            <i class="fas fa-flask text-primary"></i>
+                        </div>
+                        <h4 class="h3 mb-1">98</h4>
+                        <p class="text-muted mb-0">Lab</p>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-2">
+                    <div class="operation-card">
+                        <div class="icon-circle">
+                            <i class="fas fa-bed text-primary"></i>
+                        </div>
+                        <h4 class="h3 mb-1">372</h4>
+                        <p class="text-muted mb-0">Admitted</p>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-2">
+                    <div class="operation-card">
+                        <div class="icon-circle">
+                            <i class="fas fa-walking text-primary"></i>
+                        </div>
+                        <h4 class="h3 mb-1">39</h4>
+                        <p class="text-muted mb-0">Discharged</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Toggle sidebar on mobile
+        document.getElementById('sidebarToggle')?.addEventListener('click', function() {
+            document.querySelector('.sidebar').classList.toggle('show');
+            document.querySelector('.sidebar-backdrop').classList.toggle('show');
+        });
+
+        // Close sidebar when clicking backdrop
+        document.querySelector('.sidebar-backdrop')?.addEventListener('click', function() {
+            document.querySelector('.sidebar').classList.remove('show');
+            document.querySelector('.sidebar-backdrop').classList.remove('show');
+        });
+
+        // Handle dropdowns
+        document.querySelectorAll('.dropdown-toggle').forEach(function(element) {
+            element.addEventListener('click', function(e) {
+                e.preventDefault();
+                const dropdown = this.nextElementSibling;
+                const icon = this.querySelector('.dropdown-icon');
+                
+                // Close other dropdowns
+                document.querySelectorAll('.nav-dropdown.show').forEach(function(el) {
+                    if (el !== dropdown) {
+                        el.classList.remove('show');
+                        el.previousElementSibling.querySelector('.dropdown-icon').classList.remove('rotate');
+                    }
+                });
+
+                // Toggle current dropdown
+                dropdown.classList.toggle('show');
+                icon.classList.toggle('rotate');
+            });
+        });
+    </script>
+</body>
+
+</html>

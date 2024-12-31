@@ -1,0 +1,156 @@
+.sidebar {
+    background-color: #fff;
+    height: 100vh;
+    position: fixed;
+    padding: 20px;
+    width: 250px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    z-index: 1000;
+}
+
+.main-content {
+    margin-left: 250px;
+    padding: 20px;
+    background-color: #f8f9fa;
+    min-height: 100vh;
+}
+
+.nav-link {
+    color: #6c757d;
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 5px;
+}
+
+.nav-link:hover, .nav-link.active {
+    background-color: #e3f2fd;
+    color: #0d6efd;
+}
+
+.card {
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    margin-bottom: 20px;
+}
+
+.small-chart {
+    height: 50px;
+}
+
+.timeline-item {
+    position: relative;
+    padding-left: 30px;
+    margin-bottom: 20px;
+}
+
+.timeline-dot {
+    position: absolute;
+    left: 0;
+    top: 5px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: #e3f2fd;
+    border: 2px solid #0d6efd;
+}
+
+.priority-badge {
+    padding: 5px 15px;
+    border-radius: 15px;
+    font-size: 0.875rem;
+}
+
+.priority-low { 
+    background-color: #0dcaf0; 
+    color: white; 
+}
+
+.priority-medium {
+    background-color: #6c757d; 
+    color: white; 
+}
+
+.priority-high { 
+    background-color: #ff8f8f; 
+    color: white; 
+}
+
+.priority-critical {
+    background-color: #98ff98; 
+    color: black; 
+}
+
+.priority-critical-purple {
+    background-color: #b19cd9;
+    color: white; 
+}
+
+ /* Media Queries for Small Screens */
+ @media (max-width: 768px) {
+    .sidebar {
+        width: 200px;
+        padding: 15px;
+    }
+    
+    .main-content {
+        margin-left: 0;
+        padding: 15px;
+    }
+
+    .sidebar .nav-link {
+        font-size: 0.9rem;
+    }
+
+    .card {
+        padding: 15px;
+    }
+
+    .row.g-4 {
+        grid-template-columns: 1fr !important;
+    }
+
+    .timeline-item {
+        padding-left: 20px;
+    }
+}
+
+/* Media Queries for Extra Small Screens (Mobile Devices) */
+@media (max-width: 576px) {
+    .sidebar {
+        width: 100%;
+        position: relative;
+        height: auto;
+        padding: 10px;
+    }
+
+    .main-content {
+        margin-left: 0;
+        padding: 10px;
+    }
+
+    .sidebar .d-flex {
+        justify-content: center;
+        margin-bottom: 10px;
+    }
+
+    .sidebar .nav-link {
+        font-size: 0.8rem;
+    }
+
+    .card {
+        padding: 10px;
+    }
+
+    .row.g-4 {
+        grid-template-columns: 1fr !important;
+    }
+
+    .timeline-item {
+        padding-left: 25px;
+    }
+
+    .table-responsive {
+        overflow-x: auto;
+    }
+}

@@ -22,7 +22,7 @@
         <div class="hero-content">
             <h1>Your Health Is Our Priority</h1>
             <p>Experience world-class healthcare with our team of expert doctors</p>
-            <a href="{% url 'appointment' %}" class="btn-primary">Book Appointment</a>
+            <button class="btn-primary"><a href="" class="btn-primary">Book Appointment</a></button>
         </div>
     </section>
 
@@ -33,7 +33,7 @@
         <div class="search-container">
             <h2>Find a Doctor</h2>
             <div class="search-box">
-                <form method="GET" action="{% url 'search_doctor' %}">
+                <form method="GET" action="">
                     <input type="text" name="query" placeholder="Search by name or specialty">
                     <button type="submit" class="btn-primary">Search</button>
                 </form>
@@ -46,17 +46,17 @@
         <h2>Our Services</h2>
         <div class="services-grid">
             <div class="service-card">
-                <img src="{% static 'images/services/cardiology.jpg' %}" alt="Cardiology">
+                <img src="https://southdenver.com/wp-content/uploads/2021/09/invasive-cardiology-380x390.jpg" alt="Cardiology">
                 <h3>Cardiology</h3>
                 <p>Expert heart care and treatment</p>
             </div>
             <div class="service-card">
-                <img src="{% static 'images/services/neurology.jpg' %}" alt="Neurology">
+                <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&q=80&w=400" alt="Neurology">
                 <h3>Neurology</h3>
                 <p>Advanced brain and nerve care</p>
             </div>
             <div class="service-card">
-                <img src="{% static 'images/services/pediatrics.jpg' %}" alt="Pediatrics">
+                <img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&q=80&w=400" alt="Pediatrics">
                 <h3>Pediatrics</h3>
                 <p>Specialized care for children</p>
             </div>
@@ -68,17 +68,17 @@
         <h2>Our Expert Doctors</h2>
         <div class="doctors-grid">
             <div class="doctor-card">
-                <img src="{% static 'images/doctors/doctor1.jpg' %}" alt="Dr. Sarah Johnson">
+                <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&q=80&w=400" alt="Dr. Sarah Johnson">
                 <h3>Dr. Sarah Johnson</h3>
                 <p>Cardiologist</p>
             </div>
             <div class="doctor-card">
-                <img src="{% static 'images/doctors/doctor2.jpg' %}" alt="Dr. Michael Chen">
+                <img src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&q=80&w=400" alt="Dr.Michael Chen">
                 <h3>Dr. Michael Chen</h3>
                 <p>Neurologist</p>
             </div>
             <div class="doctor-card">
-                <img src="{% static 'images/doctors/doctor3.jpg' %}" alt="Dr. Emily Brown">
+                <img src="https://images.unsplash.com/photo-1594824476967-48c8b964273f?auto=format&fit=crop&q=80&w=400" alt="Dr.Emily Brown">
                 <h3>Dr. Emily Brown</h3>
                 <p>Pediatrician</p>
             </div>
@@ -110,7 +110,7 @@
                 <p>📞 (555) 123-4567</p>
                 <p>✉️ info@clinic-system.com</p>
             </div>
-            <form class="contact-form" method="POST" action="{% url 'send_message' %}">
+            <form class="contact-form" method="POST" action="">
                 {% csrf_token %}
                 <input type="text" name="name" placeholder="Name" required>
                 <input type="email" name="email" placeholder="Email" required>
@@ -119,15 +119,6 @@
             </form>
         </div>
     </section>
-
-    <div class="login-signup">
-        <div class="signup">
-            <a href="{% url 'user_profile' %}" style="color: white; text-decoration: none;">My Profile</a>
-        </div>
-        <div class="login">
-            <a href="{% url 'logout' %}" style="color: white; text-decoration: none;">Log Out</a>
-        </div>
-    </div>
 
     {% include 'footer.html' %}
 
