@@ -7,4 +7,11 @@
 <br><br>
 <h2 align="center">Example screenshots</h2>
 
-<p align="center"><img width="80%" height="300px" src="" alt="image"></p>
+<p align="center"><img width="80%" height="80%" src="https://github.com/anushka9D/e-Channel/blob/main/myproject/static/image/screenshots/1.png" alt="image"></p>
+<p align="center"><img width="80%" height="80%" src="https://github.com/anushka9D/e-Channel/blob/main/myproject/static/image/screenshots/2.png" alt="image"></p>
+<p align="center"><img width="80%" height="80%" src="https://github.com/anushka9D/e-Channel/blob/main/myproject/static/image/screenshots/3.png" alt="image"></p>
+<p align="center"><img width="80%" height="80%" src="https://github.com/anushka9D/e-Channel/blob/main/myproject/static/image/screenshots/4.png" alt="image"></p>
+<p align="center"><img width="80%" height="80%" src="https://github.com/anushka9D/e-Channel/blob/main/myproject/static/image/screenshots/5.png" alt="image"></p>
+<p align="center"><img width="80%" height="80%" src="https://github.com/anushka9D/e-Channel/blob/main/myproject/static/image/screenshots/6.png" alt="image"></p>
+<p align="center"><img width="80%" height="80%" src="https://github.com/anushka9D/e-Channel/blob/main/myproject/static/image/screenshots/7.png" alt="image"></p>
+<p align="center"><img width="80%" height="80%" src="https://github.com/anushka9D/e-Channel/blob/main/myproject/static/image/screenshots/8.png" alt="image"></p>
